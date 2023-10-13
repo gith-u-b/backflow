@@ -1,0 +1,30 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  encoding: utf-8
+
+development:
+  <<: *default
+  database: one_piece_dev
+  host: 127.0.0.1
+  port: 5433
+  username: postgres
+  password: 
+
+test:
+  <<: *default
+  database: one_piece_test
+  host: 127.0.0.1
+  port: 5433
+  username: postgres
+  password: 
+
+production:
+  <<: *default
+  database: one_piece_production
+  host: 127.0.0.1
+  port: 5433
+  username: one_piece
+  password: <%= ENV["ONE_PIECE_DATABASE_PASSWORD"] %>
