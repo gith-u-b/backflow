@@ -1,24 +1,17 @@
-# README
+# Instruction
+A Ruby Project About E-commerce
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# System Requirements
+* ruby 3.0.3
 
-Things you may want to cover:
+* rails 7.0.8
 
-* Ruby version
+# Run
+1. https://github.com/gith-u-b/one_piece
+2. mkdir data
+3. cd data
+4. git clone https://github.com/gith-u-b/ipdb
+5. unzip mydata4vipday3_cn.ipdb.zip
+6. bundle install
+7. rails s
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
