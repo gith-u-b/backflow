@@ -30,6 +30,15 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 
+# Auth
+gem 'jwt', '~> 2.7', '>= 2.7.1'
+
+# ipdb
+gem 'ipip-ipdb', '~>0.0.6'
+
+# Use Active Model has_secure_password
+gem 'bcrypt', '~> 3.1.7'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
