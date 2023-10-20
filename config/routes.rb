@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       post :signup, to: 'registrations#create'
       post :signin, to: 'sessions#create'
+
+      resources :contacts
     end
   end
 end

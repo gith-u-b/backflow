@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   scope :admin, -> { where(is_admin: true) }
 
+  has_many :contacts
   has_many :user_signin_logs
 
   has_secure_token :api_token

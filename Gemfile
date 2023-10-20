@@ -34,7 +34,10 @@ gem "redis", "~> 4.0"
 gem 'jwt', '~> 2.7', '>= 2.7.1'
 
 # ipdb
-gem 'ipip-ipdb', '~>0.0.6'
+gem 'ipip-ipdb', '~> 0.0.6'
+
+# page
+gem 'kaminari', '~> 1.2'
 
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
@@ -61,6 +64,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'rspec-rails', '~> 6.0.0'
+  gem 'pry'
 end
 
 group :development do
