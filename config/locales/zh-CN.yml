@@ -6,3 +6,4 @@ zh-CN:
     password_is_not_match: 密码不一致
     username_already_exist: 账号已存在
     username_is_disable: 账号被禁用
+    one_address_required: 至少包含一个收获地址

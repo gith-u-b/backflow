@@ -22,4 +22,8 @@ class Contact < ApplicationRecord
       "#{self.province}#{self.city}#{self.town}"
     end
   end
+
+  def is_default?
+    self.is_default
+  end
 end
