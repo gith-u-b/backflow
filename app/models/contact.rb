@@ -9,6 +9,8 @@ class Contact < ApplicationRecord
 
 	scope :active, -> { where(active: true) }
 
+  scope :default_addr, -> { where(is_default: true) }
+
   def check_city_presence
     if province.blank? && city.blank? && town.blank?
       errors.add(:base, '所在城区不能为空')
@@ -23,7 +25,4 @@ class Contact < ApplicationRecord
     end
   end
 
-  def is_default?
-    self.is_default
-  end
 end
