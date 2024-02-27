@@ -10,9 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_19_072055) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_27_070608) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cart_items", force: :cascade do |t|
+    t.integer "cart_id"
+    t.integer "product_id"
+    t.integer "shop_id"
+    t.string "product_name"
+    t.text "sku"
+    t.string "sku_key"
+    t.integer "number"
+    t.decimal "price", precision: 10, scale: 2, default: "0.0"
+    t.decimal "origin_price", precision: 10, scale: 2, default: "0.0"
+    t.string "prc"
+    t.boolean "is_selected", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_cart_items_on_cart_id"
+    t.index ["shop_id"], name: "index_cart_items_on_shop_id"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "contact_id"
+    t.integer "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.integer "user_id"
@@ -27,6 +53,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_19_072055) do
     t.string "remark"
     t.boolean "active", default: true
     t.boolean "is_default", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "shop_id"
+    t.string "name"
+    t.string "description"
+    t.decimal "price", precision: 10, scale: 2, default: "0.0"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shops", force: :cascade do |t|
+    t.integer "company_id"
+    t.string "name"
+    t.string "address"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

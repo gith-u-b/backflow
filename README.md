@@ -7,7 +7,7 @@ A Ruby Project About E-commerce
 * rails 7.0.8
 
 # Run
-1. https://github.com/gith-u-b/one_piece
+1. https://github.com/gith-u-b/backflow
 2. mkdir data
 3. cd data
 4. git clone https://github.com/gith-u-b/ipdb
