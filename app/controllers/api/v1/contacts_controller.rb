@@ -16,7 +16,7 @@ class Api::V1::ContactsController < Api::V1::ApiController
     requires! :province, type: String
     requires! :city, type: String
     requires! :town, type: String
-    requires! :is_default, type: Boolean, default: false
+    requires! :is_default, type: Integer, default: 0
 
     ActiveRecord::Base.transaction do
       contact = Contact.new contact_params
@@ -36,7 +36,7 @@ class Api::V1::ContactsController < Api::V1::ApiController
     requires! :province, type: String
     requires! :city, type: String
     requires! :town, type: String
-    requires! :is_default, type: Boolean, default: false
+    requires! :is_default, type: Integer, default: 0
 
     ActiveRecord::Base.transaction do
       if @contact.is_default
