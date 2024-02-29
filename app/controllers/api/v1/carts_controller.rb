@@ -9,6 +9,16 @@ class Api::V1::CartsController < Api::V1::ApiController
 		end
 	end
 
+	def destroy
+		@cart = @current_user.cart
+		@cart.cart_items.find(params[:id]).destroy
+	end
+
+	def clear_cart
+		@cart = @current_user.cart
+		@cart.cart_items.selected.destroy_all
+	end
+
 	private
 
 	def shop_items_group_attrs(shop, shop_items)

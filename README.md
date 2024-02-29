@@ -24,7 +24,7 @@ A Ruby Project About E-commerce
  
 ### HTTP 请求 GET
 
-GET: *http://localhost:3000/api/carts*
+GET: *http://localhost:3000/api/v1/carts*
 
 ### Request 请求参数
 
@@ -32,7 +32,7 @@ GET: *http://localhost:3000/api/carts*
 
 
 ```shell
-  curl -X GET -H "token: mind" -H "X-Shop: 2" http://localhost:3000/api/carts | jq
+  curl -X GET -H "token: mind" -H "X-Shop: 2" http://localhost:3000/api/v1/carts | jq
 ```
 
 ### Response 响应
@@ -98,11 +98,11 @@ GET: *http://localhost:3000/api/carts*
 ```
 
 
-## cart-2 删除购物车 已测试
+## cart-2 删除购物车
 
 ### HTTP 请求
 
-DELETE *http://localhost:3000/api/carts/:id*
+DELETE *http://localhost:3000/api/v1/carts/:id*
 
 ### Request 请求参数
 
@@ -111,7 +111,7 @@ DELETE *http://localhost:3000/api/carts/:id*
 id   | 是      | 商品id
 
 ```shell
-  curl -i -X DELETE -H "token: mind" -H "X-Shop: 2" http://localhost:3000/api/carts/:id
+  curl -i -X DELETE -H "token: mind" -H "X-Shop: 2" http://localhost:3000/api/v1/carts/:id
 ```
 
 ### Response 响应
@@ -125,22 +125,22 @@ id   | 是      | 商品id
 }
 ```
 
-## cart-3 购物车添加商品 已测试
+## cart-3 购物车添加商品
 
 ### HTTP 请求
 
-POST *http://localhost:3000/api/carts* 
+POST *http://localhost:3000/api/v1/carts* 
 
 ### Request 请求参数
 
 参数名 | 是否必需 |  数据类型 | 描述
 -----| --------| ------- | --------
 product_id  | 是 | Integer | 商品ID
-number | 是 | | Integer  | 商品数量
+number | 是 | Integer  | 商品数量
 sku | 是 | String | 商品规格
 
 ```shell
-  curl -X POST -H "token: mind" -H "X-Shop: 2" -d "cart%5Bnumber%5D=2&cart%5Bproduct_id%5D=467&cart%5Bsku%5D%5Bcolor%5D=%E7%BA%A2%E8%89%B2" http://localhost:3000/api/carts | jq
+  curl -X POST -H "token: mind" -H "X-Shop: 2" -d "cart%5Bnumber%5D=2&cart%5Bproduct_id%5D=467&cart%5Bsku%5D%5Bcolor%5D=%E7%BA%A2%E8%89%B2" http://localhost:3000/api/v1/carts | jq
 ```
 
 ### Response  响应
@@ -154,11 +154,11 @@ sku | 是 | String | 商品规格
 }
 ```
 
-## cart-4 修改数量 已测试
+## cart-4 修改数量
 
 ### HTTP 请求
 
-PUT *http://localhost:3000/api/carts/:id/edit_number*
+PUT *http://localhost:3000/api/v1/carts/:id/edit_number*
 
 ### Request 请求参数
 
@@ -168,7 +168,7 @@ id   | 是      | 购物车ID
 number | 是 | 商品数量
 
 ```shell
-  curl -i -X PUT -H "token: mind" -H "X-Shop: 2" http://localhost:3000/api/carts/:id/edit_number
+  curl -i -X PUT -H "token: mind" -H "X-Shop: 2" http://localhost:3000/api/v1/carts/:id/edit_number
 ```
 
 ### Response 响应
@@ -186,13 +186,13 @@ number | 是 | 商品数量
 
 ### HTTP 请求
 
-POST *http://localhost:3000/api/carts/clear_cart*
+PUT *http://localhost:3000/api/v1/carts/clear_cart*
 
 ### Request 请求参数
 无
 
 ```shell
-  curl -X POST -H "token: mind" -H "X-Shop: 2" http://localhost:3000/api/carts/clear_cart | jq
+  curl -X PUT -H "token: mind" -H "X-Shop: 2" http://localhost:3000/api/v1/carts/clear_cart | jq
 ```
 
 ### Response 响应
@@ -210,17 +210,17 @@ POST *http://localhost:3000/api/carts/clear_cart*
 
 ### HTTP 请求
 
-GET *http://localhost:3000/api/carts/confirm*
+GET *http://localhost:3000/api/v1/carts/confirm*
 
 ### Request 请求参数
 
 参数名 | 是否必需 |  数据类型 | 描述
 -----| --------| ------- | --------
 balance_pay  | 否 | Boolean | 是否开启余额支付
-password | 否 | | string  | 开启余额支付时需传此参数
+password | 否 | string  | 开启余额支付时需传此参数
 
 ```shell
-  curl  -H "token: mind" http://localhost:3000/api/carts/confirm | jq
+  curl  -H "token: mind" http://localhost:3000/api/v1/carts/confirm | jq
 ```
 
 ### Response 响应

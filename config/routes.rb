@@ -14,7 +14,11 @@ Rails.application.routes.draw do
       post :signin, to: 'sessions#create'
 
       resources :contacts
-      resources :carts
+      resources :carts do
+        collection do
+          put :clear_cart
+        end
+      end
     end
   end
 end

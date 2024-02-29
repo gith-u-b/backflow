@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :contacts
   has_many :products
   has_many :user_signin_logs
+  has_one :cart
 
   has_secure_token :api_token
   has_secure_password
