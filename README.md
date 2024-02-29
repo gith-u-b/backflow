@@ -42,11 +42,11 @@ GET: *http://localhost:3000/api/carts*
 
 ```json
 {
-  "shopcargroup": [
+  "shop_cart_groups": [
     {
       "id": 6887,
       "name": "高茂眼镜（厦门）有限公司",
-      "meetgroups": [
+      "meet_groups": [
         {
           "meet_reduce_id": 0,
           "products": [
@@ -229,7 +229,7 @@ password | 否 | | string  | 开启余额支付时需传此参数
 
 ```json
 {
-  "shopcargroup": [
+  "shop_cart_groups": [
     {
       "id": 26559,
       "name": "大连林家铺子食品股份有限公司",
