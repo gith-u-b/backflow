@@ -6,8 +6,6 @@ class Api::V1::RegistrationsController < Api::V1::ApiController
     requires! :password, type: String
     requires! :confirmation_password, type: String
 
-    @client_ip = client_ip
-    @ip_region = client_ip_region
     username = allowed_params[:username].strip
     # 检查密码是否有效
     error!(api_t("invalid_password"), 1) and return if !Utils.valid_password?(allowed_params[:password])
@@ -30,12 +28,12 @@ class Api::V1::RegistrationsController < Api::V1::ApiController
 
   def after_signin(user)
     @user = user
-    @user.sign_in(@client_ip)
-    @token = create_jwt(@user)
+    @user.sign_in(client_ip)
+    @token = create_jwt(user)
     SessionService.signin_log_perform_later(
-      @user.id,
-      @client_ip,
-      @ip_region
+      user.id,
+      client_ip,
+      client_ip_region
     )
   end
 

@@ -5,8 +5,6 @@ class Api::V1::SessionsController < Api::V1::ApiController
     requires! :username, type: String
     requires! :password, type: String
 
-    @client_ip = client_ip
-    @ip_region = client_ip_region
     user = User.find_by(username: allowed_params[:username])
     error!(api_t("user_does_not_exist"), 1) and return if user.blank?
     error!(api_t("invalid_username_or_password"), 2) and return if !user.authenticate(allowed_params[:password])
@@ -18,12 +16,12 @@ class Api::V1::SessionsController < Api::V1::ApiController
 
   def after_signin(user)
     @user = user
-    @user.sign_in(@client_ip)
-    @token = create_jwt(@user)
+    @user.sign_in(client_ip)
+    @token = create_jwt(user)
     SessionService.signin_log_perform_later(
-      @user.id,
-      @client_ip,
-      @ip_region
+      user.id,
+      client_ip,
+      client_ip_region
     )
   end
 
