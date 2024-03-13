@@ -4,6 +4,18 @@ info:
   title: API V1
   version: v1
 paths:
+  "/api/v1/carts/clear_cart":
+    put:
+      summary: clear_cart cart
+      responses:
+        '200':
+          description: successful
+  "/api/v1/carts":
+    get:
+      summary: list carts
+      responses:
+        '200':
+          description: successful
   "/api/v1/contacts":
     post:
       summary: create contact
@@ -33,6 +45,52 @@ paths:
       responses:
         '200':
           description: successful
+  "/api/v1/signup":
+    post:
+      summary: create registration
+      tags:
+      - Registrations
+      parameters: []
+      responses:
+        '200':
+          description: Username already exist
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+                confirmation_password:
+                  type: string
+              required:
+              - username
+              - password
+  "/api/v1/signin":
+    post:
+      summary: Create session
+      tags:
+      - Sessions
+      parameters: []
+      responses:
+        '200':
+          description: Username is disabled
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+              required:
+              - username
+              - password
 servers:
 - url: https://{defaultHost}
   variables:
